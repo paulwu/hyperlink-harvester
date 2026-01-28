@@ -23,6 +23,7 @@ Author: Generated CLI Tool
 """
 
 import argparse
+import os
 import sys
 from typing import Optional
 from urllib.parse import urljoin, urlparse, urlunparse
@@ -33,7 +34,7 @@ from bs4 import BeautifulSoup, Tag
 
 # Constants
 DEFAULT_START_URL = "https://docs.molt.bot/"
-DEFAULT_OUTPUT_FILE = "links.txt"
+DEFAULT_OUTPUT_FILE = "output/links.txt"
 USER_AGENT = "SidebarLinkExtractor/1.0 (Python CLI tool for extracting sidebar navigation links)"
 REQUEST_TIMEOUT = (10, 30)  # (connect timeout, read timeout)
 
@@ -252,6 +253,11 @@ def extract_sidebar_links(
     if verbose:
         print(f"[INFO] Extracted {len(unique_links)} unique internal links from sidebar")
     
+    # Ensure output directory exists
+    output_dir = os.path.dirname(output_file)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+    
     # Write to output file
     try:
         with open(output_file, 'w', encoding='utf-8') as f:
@@ -277,9 +283,9 @@ def main() -> int:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python extract_links.py
-  python extract_links.py --start-url https://docs.example.com/
-  python extract_links.py --out my_links.txt --verbose
+  python script/extract_links.py
+  python script/extract_links.py --start-url https://docs.example.com/
+  python script/extract_links.py --out my_links.txt --verbose
         """
     )
     
