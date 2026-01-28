@@ -1,4 +1,4 @@
-You are a senior software engineer. Implement a small, production-quality CLI tool that extracts ONLY the left sidebar navigation links from https://docs.molt.bot/ and saves unique links to links.txt.
+You are a senior software engineer. Implement a small, production-quality CLI tool that extracts ONLY the left sidebar navigation links from https://docs.molt.bot/ and saves unique links to output/links.txt.
 
 GOAL
 - I primarily want the links shown in the left navigation pane (primary/sidebar nav).
@@ -6,7 +6,7 @@ GOAL
 
 HARD REQUIREMENTS
 1) Language/runtime: Python 3.11+.
-2) Output: Create/overwrite links.txt (or --out) in UTF-8. One absolute URL per line. No extra whitespace.
+2) Output: Create/overwrite output/links.txt (or --out) in UTF-8. One absolute URL per line. No extra whitespace.
 3) Scope filter: Only include URLs on the same origin as the start URL (https://docs.molt.bot). Exclude external URLs.
 4) De-duplicate: Remove duplicates after normalization; preserve stable first-seen order.
 5) URL normalization:
@@ -33,7 +33,7 @@ HARD REQUIREMENTS
    - Optionally allow including non-HTML internal assets as output, but default behavior should include ANY internal URL found in sidebar (docs pages), while still filtering external.
 8) CLI UX (argparse):
    - --start-url (default https://docs.molt.bot/)
-   - --out (default links.txt)
+   - --out (default output/links.txt)
    - --verbose (prints chosen sidebar selection reason + counts)
 9) Networking:
    - Use requests with a descriptive User-Agent.
@@ -41,9 +41,9 @@ HARD REQUIREMENTS
    - If request fails, show an actionable error.
 
 DELIVERABLES
-- Single file: extract_links.py
+- Single file: script/extract_links.py
 - Include docstring, inline comments, and type hints.
-- Must run: python extract_links.py (defaults should work)
+- Must run: python script/extract_links.py (defaults should work)
 
 ACCEPTANCE CRITERIA
 - Running with defaults writes only https://docs.molt.bot/... links that appear in the left nav pane.
