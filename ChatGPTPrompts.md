@@ -41,16 +41,16 @@ HARD REQUIREMENTS
    - If request fails, show an actionable error.
 
 DELIVERABLES
-- Single file: extract_sidebar_links.py
+- Single file: extract_links.py
 - Include docstring, inline comments, and type hints.
-- Must run: python extract_sidebar_links.py (defaults should work)
+- Must run: python extract_links.py (defaults should work)
 
 ACCEPTANCE CRITERIA
 - Running with defaults writes only https://docs.molt.bot/... links that appear in the left nav pane.
 - No “On this page” TOC links.
 - Duplicates removed; order stable.
 
-Now implement extract_sidebar_links.py. Before the code, briefly explain the sidebar-detection heuristic (selectors + fallback scoring). Then provide full runnable code only (no pseudocode).
+Now implement extract_links.py. Before the code, briefly explain the sidebar-detection heuristic (selectors + fallback scoring). Then provide full runnable code only (no pseudocode).
 
 
 IMPORTANT: Do not omit any requirement. If any requirement is ambiguous, make a reasonable choice and document it in code comments. Do not return pseudo-code; return complete runnable code only.
