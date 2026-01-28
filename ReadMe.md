@@ -35,4 +35,5 @@ The generated `extract_links.py` script:
 - Removes duplicates while preserving order
 - Normalizes URLs (strips fragments, ensures HTTPS)
 - Provides CLI options for customization (`--start-url`, `--out`, `--verbose`)
-- The result links can be imported into Google's NotebookLM to do grounded research based on trusted (vetted) knowledge sources.
+- The result links can be imported into Google's [NotebookLM](https://notebooklm.google.com/notebook/d6a2e978-2846-4981-b42b-072b95090dfa) to do grounded research based on trusted (vetted) knowledge sources.
+
